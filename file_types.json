@@ -1,0 +1,14 @@
+{
+  "java": {
+    "display": "Java"
+  },
+  "kotlin": {
+    "display": "Kotlin"
+  },
+  "json": {
+    "display": "JSON"
+  },
+  "groovy": {
+    "header": "The provided Quilt mapping code can be compiled statically; however,\nsupport for dynamic compilation is currently only possible using Mojmaps."
+  }
+}
