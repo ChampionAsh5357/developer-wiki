@@ -87,7 +87,7 @@ public class GenerateContentTask extends DefaultTask {
 		for (String tab : full) {
 			Matcher matcher = Pattern.compile("([a-z]+):(.+?)(?:@(.+?))?").matcher(tab);
 			if (matcher.matches()) {
-				FileType language = getFileType(fileTypes, matcher.group(1));
+				FileType language = getFileType(fileTypes, matcher.group(1).toLowerCase(Locale.ROOT));
 				if (!isFirst)
 					langClasses.append(' ');
 				langClasses.append("has-lang-"+language.type);
@@ -184,7 +184,7 @@ public class GenerateContentTask extends DefaultTask {
 
 				for (String key : obj.keySet()) {
 					JsonObject tabData = obj.getAsJsonObject(key);
-					data.computeIfAbsent(key, k -> buildFileTypes(k, tabData.get("displayElement"), tabData.get("headerElement")));
+					data.computeIfAbsent(key, k -> buildFileTypes(k, tabData.get("display"), tabData.get("header")));
 				}
 			} catch (IOException e) {
 				throw new RuntimeException(e);
